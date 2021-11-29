@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         linear = findViewById(R.id.linear);
-        Integer strs [] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-        List<Integer> numList = Arrays.asList(strs);
-
+        //Integer strs [] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+        //List<Integer> numList = Arrays.asList(strs);
+        List numList =  Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+        Collections.shuffle(numList);
 
         View.OnClickListener handler = v -> {
             //Toast.makeText(this, "클릭됨", Toast.LENGTH_LONG).show();
@@ -39,21 +40,23 @@ public class MainActivity extends AppCompatActivity {
                 startNum++;
                 //값을 비워주고
                 ((Button)v).setText("");
-            } if(btnNum == 16){
+            }else if(btnNum == 16){
                 Toast.makeText(this, "게임종료", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "숫자를 확인해주세요", Toast.LENGTH_SHORT).show();
             }
 
         };
 
-        Collections.shuffle(numList);
+
 
         //1차원 배열 16개의 임의의 순서로 Collections.shuffle()
-        for(int i=1; i<=16; i++){
+        for(int i=0; i<numList.size(); i++){
             Button btn = new Button(this);
-            btn.setText(String.valueOf(i));
+            //btn.setText(String.valueOf(i));
+            btn.setText(String.valueOf(numList.get(i)));
             linear.addView(btn);
             btn.setOnClickListener(handler);
         }
-
     }
 }

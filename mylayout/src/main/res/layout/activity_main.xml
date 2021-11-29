@@ -7,4 +7,4 @@
     android:layout_height="match_parent"
     android:columnCount="4"
     android:rowCount="4"
-    tools:context=".MainActivity"></GridLayout>
+    tools:context=".MainActivity"/>
