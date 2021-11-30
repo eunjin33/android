@@ -13,10 +13,10 @@
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="전화번호"
         android:inputType="textPersonName"
-        android:text="mobile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toEndOf="@+id/txtAge"
         app:layout_constraintTop_toBottomOf="@+id/txtNo" />
 
@@ -27,20 +27,21 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:hint="나이"
         android:inputType="textPersonName"
-        android:text="age"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
 
     <EditText
         android:id="@+id/txtNo"
         android:layout_width="173dp"
         android:layout_height="56dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
+        android:hint="no"
         android:inputType="textPersonName"
-        android:text="No"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,12 +52,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:ems="10"
+        android:hint="이름"
         android:inputType="textPersonName"
-        android:text="name"
         app:layout_constraintEnd_toStartOf="@+id/txtNo"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/btnIns"

@@ -82,14 +82,15 @@ public class MainActivity extends AppCompatActivity {
 //            txtResult.setText(list.toString());
 
             String sqlp = "";
-            String sql = "select name,age,mobile from emp order by name desc";
+            String sql = "select _id,name,age,mobile from emp order by name desc";
             Cursor cursor = db.rawQuery(sql, null); //실행결과를 담는 것
 
             while(cursor.moveToNext()){
-                String name = cursor.getString(0);
-                int age = cursor.getInt(1);
-                String mobile = cursor.getString(2);
-                sqlp += name + String.valueOf(age) + mobile +"\n";
+                String id = cursor.getString(0);
+                String name = cursor.getString(1);
+                int age = cursor.getInt(2);
+                String mobile = cursor.getString(3);
+                sqlp +=  "id: " + id + " 이름: " + name + "  나이: " + String.valueOf(age) + "\n" +"전화번호: " + mobile +"\n";
             }
                 txtResult.setText(sqlp);
         });
