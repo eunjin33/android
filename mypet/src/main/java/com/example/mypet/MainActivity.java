@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         chkAgree = findViewById(R.id.ChkAgree);
         radioGroup = findViewById(R.id.RadioGroup);
         btnOk = findViewById(R.id.BtnOk);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.textName);
 
         rdoDog = findViewById(R.id.RdoDog);
         rdoCat = findViewById(R.id.RdoCat);

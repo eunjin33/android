@@ -20,7 +20,7 @@
         android:text="시작함" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:text="좋아하는 애완동물은?"
