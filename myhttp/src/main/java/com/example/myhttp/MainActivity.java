@@ -18,13 +18,16 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.button);
-        Button btnIn = findViewById(R.id.btnIn);
+        Button btnSel = findViewById(R.id.btnSel);
+        Button btnIn = findViewById(R.id.btnIns);
+        Button btnDel = findViewById(R.id.btnDel);
+        Button btnSelect = findViewById(R.id.btnSelect);
         TextView tv = findViewById(R.id.textName);
 
         TextView txtId = findViewById(R.id.txtId);
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         btnIn.setOnClickListener(v->{
-            String url = "http:///192.168.35.1/insertUser";
+            String url = "http://10.0.2.2/insertUser";
             StringRequest request = new StringRequest(Request.Method.POST,url, s->{
                 tv.setText(s);
             }, e->{}){
@@ -52,15 +55,14 @@ public class MainActivity extends AppCompatActivity {
             queue.add(request);
         });
 
-        button.setOnClickListener(v->{
+        btnSel.setOnClickListener(v->{
             //String url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20211130";
-            String url ="http:///192.168.35.1/userList";
+            String url ="http://10.0.2.2/userList";
 
             //람다식으로 표현하는 것 s 매개변수 , e 에러 났을 때
             StringRequest request = new StringRequest(url, s->{
                 //이름과 패스워드만 표시 .Map or UserVO
                 //Map<String, Object> map = ;
-
                  tv.setText(s);
             }, e->{
                 Log.d("request", e.toString());
@@ -68,6 +70,30 @@ public class MainActivity extends AppCompatActivity {
             });
             queue.add(request);
         });
+
+        btnSelect.setOnClickListener(v->{
+            String url = "http://10.0.2.2/users";
+            StringRequest request = new StringRequest(url, s->{
+                //txtId.setText(s);
+
+            }, e->{
+                Log.d("request", e.toString());
+            });
+            queue.add(request);
+        });
+
+//        btnDel.setOnClickListener(v->{
+//            String url = "http://10.0.2.2/deleteUser";
+//
+//            StringRequest request = new StringRequest(url, s->{
+//
+//            }, e->{
+//                Log.d("request", e.toString());
+//            });
+//            queue.add(request);
+//        });
+
+
 
     }
 }
