@@ -33,12 +33,27 @@ public class MainActivity extends AppCompatActivity {
         dp.init(2021,11,2,(datePicker, i, i1, i2) -> {
             //i년, i1월, i2일
             //파일을 읽어서 view에 보이도록
-            i1 =i1+1;
-            String filename = Integer.toString(i)
-                    +((i1<10) ? ("0" +i1) : i1)
-                    +((i2<10) ? ("0"+i2) : i2) + ".txt";
+//            i1 = i1+1;
+//            String filename = Integer.toString(i)
+//                    +((i1<10) ? ("0" +i1) : i1)
+//                    +((i2<10) ? ("0"+i2) : i2) + ".txt";
+
+            String year = Integer.toString(i);
+            String month = Integer.toString(i1+1);
+            String day = Integer.toString(i2);
+
+            System.out.println(year);
+            System.out.println(month);
+            System.out.println(day);
+
+
+            String filename = year+month+day+".txt";
+
+            System.out.println(filename);
+
             fileRead(filename);
         });
+
         btnWrite.setOnClickListener(v->{
             try {
                 String year = Integer.toString(dp.getYear());
@@ -76,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fileRead(String filename){
         try{
-            FileInputStream inFs = openFileInput("filename");
+            FileInputStream inFs = openFileInput(filename);
             byte[] txt = new byte[30];
             inFs.read(txt);
             String str = new String(txt);

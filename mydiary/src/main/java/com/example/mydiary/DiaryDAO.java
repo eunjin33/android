@@ -45,7 +45,6 @@ public class DiaryDAO {
         contentValues.put("title", diaryVO.getTitle());
         contentValues.put("content", diaryVO.getContent());
 
-
         //현재시간 설정
         LocalDate dt = LocalDate.now();
         String sdt = dt.format(DateTimeFormatter.ISO_DATE);
@@ -62,8 +61,9 @@ public class DiaryDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", diaryVO.getTitle());
         contentValues.put("content", diaryVO.getContent());
+        String id = diaryVO.getId();
 
-        //db.update("diary");
+        db.update("diary",contentValues, "id=?", new String[]{id});
         db.close();
     }
 
