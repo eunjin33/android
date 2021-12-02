@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.Map;
 
 public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyHolder>{
-    List<Map<String, String>> data;
+    List<MemoVO> data;
 
     public MyRecycleAdapter(){};
-    public MyRecycleAdapter(List<Map<String, String>> data) {
+    public MyRecycleAdapter(List<MemoVO> data) {
         this.data = data;
     }
 
-    public List<Map<String, String>> getData() {
+    public List<MemoVO> getData() {
         return data;
     }
 
-    public void setData(List<Map<String, String>> data) {
+    public void setData(List<MemoVO> data) {
         this.data = data;
     }
 
@@ -38,8 +38,8 @@ public class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyHo
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.txtName.setText(data.get(position).get("name"));
-        holder.txtAddr.setText(data.get(position).get("addr"));
+        holder.txtName.setText(data.get(position).getTitle());
+        holder.txtAddr.setText(data.get(position).getContent());
     }
 
     @Override
