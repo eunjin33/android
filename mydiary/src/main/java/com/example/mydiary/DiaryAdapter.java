@@ -1,9 +1,11 @@
 package com.example.mydiary;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,8 +42,16 @@ public class DiaryAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.listview_item, viewGroup, false);
         TextView txtTitle = view.findViewById(R.id.txtTitle);
         TextView txtContent = view.findViewById(R.id.txtContent);
+        ImageView imageView =view.findViewById(R.id.imageView);
+
         txtTitle.setText(list.get(i).getTitle());
         txtContent.setText(list.get(i).getContent());
+
+        //파일이 있으면 이미지를 보여주고 없으면..??????????
+        if(list.get(i).getImg() != null ){
+            Uri photoURI = Uri.parse(list.get(i).getImg());
+            imageView.setImageURI(photoURI);
+        }
         return view;
     }
 

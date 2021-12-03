@@ -2,7 +2,9 @@ package com.example.mydiary;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -18,10 +20,14 @@ public class MainActivity extends AppCompatActivity {
     //List<DiaryVO> list;
     ListView listDiary;
     Button btnWriteForm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //권한을 묻고 승인
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MODE_PRIVATE);
 
         //myadapter 만들고 list에 넣는다?????
         dbHelper = new DBHelper(getApplicationContext());
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         listDiary =findViewById(R.id.listDiary);
 
         DiaryAdapter adapter = new DiaryAdapter(list);
+
         listDiary.setAdapter(adapter);
 
         listDiary.setOnItemClickListener((adapterView, view, i, l )->{
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("id" ,list.get(i).getId());
                         intent.putExtra("title" ,list.get(i).getTitle());
                         intent.putExtra("content", list.get(i).getContent());
+                        intent.putExtra("img", list.get(i).getImg());
                         startActivityForResult(intent, 1);
 
                         //값을 가지고 activity_write로 이동
